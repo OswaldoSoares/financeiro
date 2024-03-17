@@ -78,6 +78,7 @@ class Registries(models.Model):
         Categories, related_name="category_n3", on_delete=models.CASCADE
     )
     value = models.DecimalField(max_digits=10, decimal_places=2)
+    in_out = models.BooleanField(default=False)
     ordering = models.IntegerField(default=0)
     obs = models.TextField(max_length=120)
 
