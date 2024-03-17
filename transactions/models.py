@@ -92,7 +92,6 @@ class Registries(models.Model):
         return str(self.companies)
 
     def save(self, *args, **kwargs):
-        self.favored = self.favored.upper()
         self.obs = self.obs.upper()
 
         super().save(*args, **kwargs)
