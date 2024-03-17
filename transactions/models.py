@@ -28,3 +28,30 @@ class Companies(models.Model):
         return str(self.name)
 
     objects = models.Manager()
+
+
+class Categories(models.Model):
+    """
+        Save category description
+    Attributes:
+        description:
+
+    """
+    id = models.AutoField(primary_key=True)
+    description = models.CharField(max_length=30)
+
+    class Meta:  # pylint: disable=R0903
+        """ String for representing the ModelName object """
+        db_table = "categories"
+        ordering = ["description",]
+
+    def __str__(self):
+        """ Sorted by name field """
+        return str(self.description)
+
+    def save(self, *args, **kwargs):
+        self.description = self.description.upper()
+
+        super().save(*args, **kwargs)
+
+    objects = models.Manager()
