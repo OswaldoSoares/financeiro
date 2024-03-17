@@ -108,6 +108,7 @@ class RegistryItens(models.Model):
     """
     id = models.AutoField(primary_key=True)
     description = models.CharField(max_length=30)
+    brand = models.CharField(max_length=20, null=True, blank=True)
     amount = models.DecimalField(max_digits=8, decimal_places=3)
     unitary = models.DecimalField(max_digits=10, decimal_places=2)
     favored = models.CharField(max_length=20, null=True)
