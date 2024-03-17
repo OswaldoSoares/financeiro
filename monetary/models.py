@@ -22,7 +22,6 @@ class Accounts(models.Model):
 
     def save(self, *args, **kwargs):
         """ Save datas in uppercase """
-
         self.name = self.name.upper()
         self.description = self.description.upper()
 
@@ -30,7 +29,6 @@ class Accounts(models.Model):
 
     def __str__(self):
         """ String for representing the ModelName object """
-
         return str(self.name)
 
     objects = models.Manager()
