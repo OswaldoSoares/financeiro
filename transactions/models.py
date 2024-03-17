@@ -77,7 +77,6 @@ class Registries(models.Model):
     category_n3 = models.ForeignKey(
         Categories, related_name="category_n3", on_delete=models.CASCADE
     )
-    favored = models.CharField(max_length=20)
     value = models.DecimalField(max_digits=10, decimal_places=2)
     ordering = models.IntegerField(default=0)
     obs = models.TextField(max_length=120)
