@@ -80,7 +80,7 @@ class Registries(models.Model):
     value = models.DecimalField(max_digits=10, decimal_places=2)
     in_out = models.BooleanField(default=False)
     ordering = models.IntegerField(default=0)
-    obs = models.TextField(max_length=120)
+    obs = models.TextField(max_length=120, blank=True)
 
     class Meta:  # pylint: disable=R0903
         """ Sorted by name field """
