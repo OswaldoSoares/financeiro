@@ -16,5 +16,16 @@
 </head>
 <body>
 	<h1>{{ nome }}</h1>	
+	<div id="circularMenu" class="circular-menu circular-menu-left active">
+		<a class=" floating-btn" onclick="document.getElementById('circularMenu').classList.toggle('active');">
+			<i class="icofont-navigation-menu"></i>
+		</a>
+		<menu class="items-wrapper">
+			<a href="{% url 'index_website' %}" class="menu-item icofont-home" title="Home"></a>
+			<a href="#" class="menu-item icofont-bank"></a>
+			<a href="#" class="menu-item icofont-credit-card"></a>
+			<a href="#" class="menu-item icofont-search"></a>
+		</menu>
+	</div>
 </body>
 </html>
