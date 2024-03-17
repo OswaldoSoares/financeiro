@@ -110,6 +110,7 @@ class RegistryItens(models.Model):
     description = models.CharField(max_length=30)
     amount = models.DecimalField(max_digits=8, decimal_places=3)
     unitary = models.DecimalField(max_digits=10, decimal_places=2)
+    favored = models.CharField(max_length=20)
     registries = models.ForeignKey(Registries, on_delete=models.CASCADE)
 
     class Meta:  # pylint: disable=R0903
