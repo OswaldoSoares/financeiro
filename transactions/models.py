@@ -147,3 +147,18 @@ class Payments(models.Model):
         return str(self.registry)
 
     objects = models.Manager()
+
+
+class Methods(models.Model):
+    """
+        Saves methods payments
+    """
+    id = models.AutoField(primary_key=True)
+    payment = models.ForeignKey(Payments, on_delete=models.CASCADE)
+    account = models.ForeignKey(Accounts, on_delete=models.CASCADE)
+    value = models.DecimalField(max_digits=10, decimal_places=2)
+
+    class Meta:  # pylint: disable=R0903
+        """ Sorted by name field """
+        db_table = "transactions_methods"
+        ordering = ["payment",]
