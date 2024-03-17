@@ -98,3 +98,33 @@ class Registries(models.Model):
         super().save(*args, **kwargs)
 
     objects = models.Manager()
+
+
+class RegistryItens(models.Model):
+    """
+        Saves items from registries
+    Attributes:
+        description:
+
+    """
+    id = models.AutoField(primary_key=True)
+    description = models.CharField(max_length=30)
+    amount = models.DecimalField(max_digits=8, decimal_places=3)
+    unitary = models.DecimalField(max_digits=10, decimal_places=2)
+    registries = models.ForeignKey(Registries, on_delete=models.CASCADE)
+
+    class Meta:  # pylint: disable=R0903
+        """ Sorted by name field """
+        db_table = "transactions_itens"
+        ordering = ["description",]
+
+    def __str__(self):
+        """ String for representing the ModelName object """
+        return str(self.description)
+
+    def save(self, *args, **kwargs):
+        self.description = self.description.upper()
+
+        super().save(*args, **kwargs)
+
+    objects = models.Manager()
