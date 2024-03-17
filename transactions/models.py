@@ -128,3 +128,22 @@ class RegistryItens(models.Model):
         super().save(*args, **kwargs)
 
     objects = models.Manager()
+
+
+class Payments(models.Model):
+    """
+        Saves payments from registries
+    """
+    id = models.AutoField(primary_key=True)
+    registry = models.ForeignKey(Registries(), on_delete=models.CASCADE)
+    date = models.DateField()
+
+    class Meta:  # pylint: disable=R0903
+        """ Sorted by name field """
+        db_table = "transactions_payments"
+        ordering = ["date", "registry",]
+
+    def __str__(self):
+        return str(self.registry)
+
+    objects = models.Manager()
