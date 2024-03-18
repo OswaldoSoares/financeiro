@@ -89,7 +89,7 @@ class Registries(models.Model):
 
     def __str__(self):
         """ String for representing the ModelName object """
-        return str(f"{self.companies} - {self.id})
+        return str(f"{self.companies} - {self.id}")
 
     def save(self, *args, **kwargs):
         self.obs = self.obs.upper()
