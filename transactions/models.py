@@ -1,4 +1,5 @@
 """ Define the structure of stored data """
+
 from django.db import models
 from monetary.models import Accounts
 
@@ -69,6 +70,7 @@ class Registries(models.Model):
         obs:
 
     """
+
     id = models.AutoField(primary_key=True)
     date = models.DateField()
     companies = models.ForeignKey(Companies, on_delete=models.CASCADE)
@@ -111,6 +113,7 @@ class RegistryItens(models.Model):
         description:
 
     """
+
     id = models.AutoField(primary_key=True)
     description = models.CharField(max_length=30)
     brand = models.CharField(max_length=20, null=True, blank=True)
