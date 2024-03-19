@@ -10,13 +10,15 @@ class Companies(models.Model):
         name:
 
     """
+
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=30)
 
     class Meta:  # pylint: disable=R0903
-        """ Sorted by name field """
+        """Sorted by name field"""
+
         db_table = "companies"
-        ordering = ["name",]
+        ordering = ["name"]
 
     def save(self, *args, **kwargs):
         self.name = self.name.upper()
@@ -24,7 +26,7 @@ class Companies(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        """ String for representing the ModelName object """
+        """String for representing the ModelName object"""
         return str(self.name)
 
     objects = models.Manager()
@@ -37,16 +39,18 @@ class Categories(models.Model):
         description:
 
     """
+
     id = models.AutoField(primary_key=True)
     description = models.CharField(max_length=30)
 
     class Meta:  # pylint: disable=R0903
-        """ String for representing the ModelName object """
+        """String for representing the ModelName object"""
+
         db_table = "categories"
-        ordering = ["description",]
+        ordering = ["description"]
 
     def __str__(self):
-        """ Sorted by name field """
+        """Sorted by name field"""
         return str(self.description)
 
     def save(self, *args, **kwargs):
@@ -83,12 +87,13 @@ class Registries(models.Model):
     obs = models.TextField(max_length=120, blank=True)
 
     class Meta:  # pylint: disable=R0903
-        """ Sorted by name field """
+        """Sorted by name field"""
+
         db_table = "transactions_registries"
-        ordering = ["date", "ordering", ]
+        ordering = ["date", "ordering"]
 
     def __str__(self):
-        """ String for representing the ModelName object """
+        """String for representing the ModelName object"""
         return str(f"{self.companies} - {self.id}")
 
     def save(self, *args, **kwargs):
@@ -115,13 +120,14 @@ class RegistryItens(models.Model):
     registries = models.ForeignKey(Registries, on_delete=models.CASCADE)
 
     class Meta:  # pylint: disable=R0903
-        """ Sorted by name field """
+        """Sorted by name field"""
+
         db_table = "transactions_itens"
-        ordering = ["description",]
+        ordering = ["description"]
 
     def __str__(self):
-        """ String for representing the ModelName object """
-        return str(self.description)
+        """String for representing the ModelName object"""
+        return str(f"{self.description} - {self.registries}")
 
     def save(self, *args, **kwargs):
         self.description = self.description.upper()
@@ -133,18 +139,21 @@ class RegistryItens(models.Model):
 
 class Payments(models.Model):
     """
-        Saves payments from registries
+    Saves payments from registries
     """
+
     id = models.AutoField(primary_key=True)
     registry = models.ForeignKey(Registries(), on_delete=models.CASCADE)
     date = models.DateField()
 
     class Meta:  # pylint: disable=R0903
-        """ Sorted by name field """
+        """Sorted by name field"""
+
         db_table = "transactions_payments"
-        ordering = ["date", "registry",]
+        ordering = ["date", "registry"]
 
     def __str__(self):
+        """String for representing the ModelName object"""
         return str(self.registry)
 
     objects = models.Manager()
@@ -152,14 +161,16 @@ class Payments(models.Model):
 
 class Methods(models.Model):
     """
-        Saves methods payments
+    Saves methods payments
     """
+
     id = models.AutoField(primary_key=True)
     payment = models.ForeignKey(Payments, on_delete=models.CASCADE)
     account = models.ForeignKey(Accounts, on_delete=models.CASCADE)
     value = models.DecimalField(max_digits=10, decimal_places=2)
 
     class Meta:  # pylint: disable=R0903
-        """ Sorted by name field """
+        """Sorted by name field"""
+
         db_table = "transactions_methods"
-        ordering = ["payment",]
+        ordering = ["payment"]
