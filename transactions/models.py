@@ -177,3 +177,9 @@ class Methods(models.Model):
 
         db_table = "transactions_methods"
         ordering = ["payment"]
+
+    def __str__(self):
+        """String for representing the ModelName object"""
+        return str(f"{self.account} - {self.payment}")
+
+    objects = models.Manager()
