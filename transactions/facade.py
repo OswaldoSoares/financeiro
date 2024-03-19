@@ -36,3 +36,20 @@ def create_registries_context_period_paid(month_year):
         date__range=[first_day, last_day]
     ).order_by("date")
     return {"payments": payments}
+
+
+def create_registries_context_period_paid_methods(month_year):
+    """
+        Creates a context with payment methods for records by period.
+    Args:
+        month_year: Month and year used as the basis of the period.
+
+    Returns:
+        Context methods queryset
+
+    """
+    first_day, last_day = website_facade.start_end_dates(month_year)
+    methods = md.Methods.objects.filter(
+        payment__date__range=[first_day, last_day]
+    )
+    return {"methods": methods}
