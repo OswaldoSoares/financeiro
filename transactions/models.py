@@ -120,7 +120,7 @@ class RegistryItens(models.Model):
     amount = models.DecimalField(max_digits=8, decimal_places=3)
     unitary = models.DecimalField(max_digits=10, decimal_places=2)
     favored = models.CharField(max_length=20, null=True)
-    registries = models.ForeignKey(Registries, on_delete=models.CASCADE)
+    registry = models.ForeignKey(Registries, on_delete=models.CASCADE)
 
     class Meta:  # pylint: disable=R0903
         """Sorted by name field"""
