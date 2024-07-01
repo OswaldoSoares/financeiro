@@ -84,6 +84,15 @@ def create_registries_context_period_paid_methods_unique(month_year):
         "-payment__date", "-payment__registry__ordering"
     )
     return {"methods": methods}
+def create_registries_context_unpayd():
+    payds = md.Payments.objects.all()
+    list_id = []
+    for payd in payds:
+        list_id.append(payd.registry_id)
+    unpaids = md.Registries.objects.all().exclude(id__in=list_id)
+    return {"unpaids": unpaids}
+
+
 def create_registry_itens_context(registry_id):
     itens = md.RegistryItens.objects.filter(registry_id=registry_id).annotate(
         total=Sum(F("amount") * F("unitary"))
