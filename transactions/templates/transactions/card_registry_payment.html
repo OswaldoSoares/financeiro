@@ -1,0 +1,71 @@
+{% load humanize %}
+<!-- Header -->
+<div class="card-header">
+	<div class="div-flex">
+		<i class="icofont-plus i-button pad-left"
+			onclick="openMyModal(event); return false;"
+			data-title="ADICIONA ITENS DO REGISTRO"
+			data-action="add_registry_itens"
+			data-button-save-label="SALVAR"
+			data-id-selected="{{ registry_id }}"
+			title="Adiciona Item do Registro"></i>
+		<div class="div-form-control">
+			<span>PAGAMENTO TRANSAÇÃO</span>
+		</div>
+		<i class="icofont-simple-up i-button pad-right"></i>
+	</div>
+</div>
+<!-- Body -->
+<div class="card-body body-vales-colaborador">
+	{% for item in itens %}
+	<div class="card-body-item">
+		<div class="input-group">
+			<div class="input-group-addon addon-my-color">
+				<i class="i-button-null">{{ forloop.counter|stringformat:"02d" }}</i>
+			</div>
+		<div class="div-flex div-form-control">
+			<div class="tamanho-80 text-left">
+				<span>{{ item.description }}</span>
+			</div>
+			<div class="tamanho-20 text-right">
+				<span>{{ item.amount }} UN</span>
+			</div>
+		</div>
+		<div class="div-flex div-form-control">
+			<div class="tamanho-80 text-left">
+				<span>{{ item.brand }}</span>
+			</div>
+			<div class="tamanho-20 text-right">
+				<span>R$ {{ item.unitary }}</span>
+			</div>
+		</div>
+
+		<div class="div-flex div-form-control">
+			<div class="tamanho-80 text-left">
+				<span>{{ item.favored }}</span>
+			</div>
+			<div class="tamanho-20 text-right">
+				<span>R$ {{ item.total|floatformat:2 }}</span>
+			</div>
+		</div>
+		<div class="input-group-addon addon-my-color">
+			<i class="icofont-trash i-button"
+			title=""></i>
+		</div>
+	</div>
+</div>
+{% endfor %}
+</div>
+<!-- Footer -->
+<div class="card-footer">
+	<div class="div-flex">
+		<div class="div-form-control div-flex">
+			<div class="tamanho-100 text-center">
+				<span class="font-menor">R$ {{ total.value|floatformat:2 }}</span>
+			</div>
+			<div class="tamanho-20 text-right">
+				<span class="font-menor"></span>
+			</div>
+		</div>
+	</div>
+</div>
