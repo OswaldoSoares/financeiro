@@ -1,6 +1,21 @@
 import datetime
 from django import forms
 from transactions import models
+class PaymentForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["date"].initial = datetime.date.today()
+
+    class Meta:
+        model = models.Payments
+        fields = "__all__"
+        widgets = {
+            "date": DateInput(
+                format="%Y-%m-%d", attrs={"class": "form-control text-center"}
+            )
+        }
+
+
 class RegistriesForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
