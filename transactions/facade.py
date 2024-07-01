@@ -84,6 +84,17 @@ def create_registries_context_period_paid_methods_unique(month_year):
         "-payment__date", "-payment__registry__ordering"
     )
     return {"methods": methods}
+def form_registry_itens(request):
+    registry = md.Registries.objects.get(id=request.GET.get("id_selected"))
+    form = fr.RegistryItensForm()
+    context = {"form": form, "registry": registry}
+    data = {}
+    data["html_modal"] = render_to_string(
+        "transactions/modal_form_registry_item.html", context, request=request
+    )
+    return JsonResponse(data)
+
+
 def save_registry(request):
     record = []
     record.append(
