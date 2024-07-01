@@ -62,3 +62,9 @@ def add_payment(request):
         tf.save_payment(request)
         print(request.POST)
     return data
+
+
+def view_registry_itens(request):
+    context = tf.create_registry_itens_context(request.GET.get("registry_id"))
+    data = tf.create_registry_itens_data(request, context)
+    return data
