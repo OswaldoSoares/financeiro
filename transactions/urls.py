@@ -4,4 +4,5 @@ from transactions.views import (
     add_payment,
     add_registry,
     add_registry_itens,
+    view_registry_itens,
 )
