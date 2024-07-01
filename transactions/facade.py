@@ -84,6 +84,24 @@ def create_registries_context_period_paid_methods_unique(month_year):
         "-payment__date", "-payment__registry__ordering"
     )
     return {"methods": methods}
+def save_registry(request):
+    record = []
+    record.append(
+        md.Registries(
+            date=request.POST.get("date"),
+            companies_id=int(request.POST.get("companies")),
+            category_n1_id=int(request.POST.get("category_n1")),
+            category_n2_id=int(request.POST.get("category_n2")),
+            category_n3_id=int(request.POST.get("category_n3")),
+            value=request.POST.get("value"),
+            in_out=True if request.POST.get("in_out") == "CRÉDITO" else False,
+            ordering=request.POST.get("ordering"),
+            obs=request.POST.get("obs"),
+        )
+    )
+    md.Registries.objects.bulk_create(record)
+
+
 def save_registry_item(request):
     record = []
     record.append(
