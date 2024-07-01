@@ -27,3 +27,9 @@ $(document).on('click', '.js-toggle-registries-period', function() {
     slide_toggle_icon($(this))
 
 });
+
+$(document).on('click', '.js-toggle-registries-unpaid', function() {
+    $(".js-body-registries-unpaid").slideToggle(500)
+    $(".js-footer-registries-unpaid").slideToggle(500)
+    slide_toggle_icon($(this))
+});
