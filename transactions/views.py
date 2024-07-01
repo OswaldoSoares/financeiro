@@ -49,3 +49,16 @@ def add_registry_itens(request):
         data = tf.create_registry_itens_data(request, context)
         print(request.POST)
     return data
+
+
+def add_payment(request):
+    if request.method == "GET":
+        if tf.consult_payment(request.GET.get("id_selected")):
+            print("OK")
+        else:
+            print(request.GET)
+            data = tf.form_payment(request)
+    else:
+        tf.save_payment(request)
+        print(request.POST)
+    return data
