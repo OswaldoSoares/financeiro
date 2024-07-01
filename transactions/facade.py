@@ -84,3 +84,9 @@ def create_registries_context_period_paid_methods_unique(month_year):
         "-payment__date", "-payment__registry__ordering"
     )
     return {"methods": methods}
+def consult_payment(registry_id):
+    payment = md.Payments.objects.filter(registry_id=registry_id)
+    if payment:
+        return {"payment": payment}
+    else:
+        return False
