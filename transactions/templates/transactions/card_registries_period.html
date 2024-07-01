@@ -1,1 +1,74 @@
-
+<!-- Header -->
+<div class="card-header">
+	<div class="div-flex">
+		<i class="icofont-plus i-button pad-left"
+			onclick="openMyModal(event); return false;"
+			data-title="ADICIONA TRANSAÇÃO"
+			data-action="add_registry"
+			data-button-save-label="SALVAR"
+			title="Adiciona Transação"></i>
+		<div class="div-form-control">
+			<span>TRANSAÇÕES PAGAS</span>
+		</div>
+		<i class="icofont-simple-up i-button pad-right js-toggle-registries-period"></i>
+	</div>
+</div>
+<!-- Body -->
+<div class="card-body body-vales-colaborador js-body-registries-period">
+	{% for method in methods %}
+	<div class="card-body-item">
+		<div class="input-group">
+			<div class="input-group-addon addon-my-color">
+				<i class="i-button-null">{{ forloop.counter|stringformat:"02d" }}</i>
+			</div>
+		<div class="div-flex div-form-control">
+			<div class="tamanho-20 text-center">
+				<span>{{ method.payment.date|date:"d/m/y" }}</span>
+			</div>
+			<div class="tamanho-60 text-left">
+				<span title="{{ method.payment.registry.id }}">
+					{{ method.payment.registry.companies.name }}
+				</span>
+			</div>
+			{% if method.payment.registry.in_out %}
+			<div class="tamanho-20 text-right color-green">
+				<span>R$ {{ method.payment.registry.value }}</span>
+			</div>
+			{% else %}
+			<div class="tamanho-20 text-right color-red">
+				<span>R$ {{ method.payment.registry.value }}</span>
+			</div>
+			{% endif %}
+		</div>
+		<div class="input-group-addon addon-my-color addon-first">
+			<i class="icofont-trash i-button"
+				onclick="openMyModal(event); return false;"
+				data-title=""
+				data-action=""
+				data-button-save-label=""
+				data-confirma=""
+				data-idconfirma=""
+				title=""></i>
+		</div>
+		<div class="input-group-addon addon-my-color">
+			<i class="icofont-eye-alt i-button js-mostra-itens"
+				data-registry-id="{{ method.payment.registry.id }}"
+				title="Consuta Itens"></i>
+		</div>
+	</div>
+</div>
+{% endfor %}
+</div>
+<!-- Footer -->
+<div class="card-footer js-footer-registries-period">
+	<div class="div-flex">
+		<div class="div-form-control div-flex">
+			<div class="tamanho-80 text-left">
+				<span class="font-menor"></span>
+			</div>
+			<div class="tamanho-20 text-right">
+				<span class="font-menor"></span>
+			</div>
+		</div>
+	</div>
+</div>
