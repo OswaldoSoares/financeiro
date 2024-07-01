@@ -4,5 +4,6 @@ from monetary.models import Accounts
 
 
 def index_website(request):
-    context = {"nome": "Hello Word"}
+    accounts = Accounts.objects.all()
+    context = {"accounts": accounts}
     return render(request, "website/index.html", context)
