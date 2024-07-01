@@ -19,4 +19,9 @@ urlpatterns = [
         add_payment,
         name="add_payment",
     ),
+    path(
+        "add_registry",
+        add_registry,
+        name="add_registry",
+    ),
 ]
