@@ -1,0 +1,46 @@
+<!-- Header -->
+<div class="card-header">
+	<div class="div-flex">
+		<i class="icofont-check i-button-null pad-left"></i>
+		<div class="div-form-control">
+		</div>
+		<i class="icofont-simple-up i-button pad-right"></i>
+	</div>
+</div>
+<!-- Body -->
+<div class="card-body body-vales-colaborador">
+	{% for cat in category_n3_out %}
+	<div class="card-body-item">
+		<div class="input-group">
+			<div class="input-group-addon addon-my-color">
+				<i class="i-button-null">{{ forloop.counter|stringformat:"02d" }}</i>
+			</div>
+		<div class="div-flex div-form-control">
+			<div class="tamanho-70 text-left">
+				<span>{{ cat.category }}</span>
+			</div>
+			<div class="tamanho-30 text-right color-red">
+				<span>R$ {{ cat.value }}</span>
+			</div>
+		</div>
+		<div class="input-group-addon addon-my-color">
+			<i class="icofont-eye-alt i-button"
+			title=""></i>
+		</div>
+	</div>
+</div>
+{% endfor %}
+</div>
+<!-- Footer -->
+<div class="card-footer">
+	<div class="div-flex">
+		<div class="div-form-control div-flex">
+			<div class="tamanho-80 text-left">
+				<span class="font-menor"></span>
+			</div>
+			<div class="tamanho-20 text-right">
+				<span class="font-menor"></span>
+			</div>
+		</div>
+	</div>
+</div>
