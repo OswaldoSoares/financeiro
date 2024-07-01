@@ -81,6 +81,6 @@ def create_registries_context_period_paid_methods_unique(month_year):
         {v["payment_id"]: v["id"] for v in methods}.values()
     )
     methods = md.Methods.objects.filter(id__in=payments_distinct).order_by(
-        "payment__registry__date", "payment__registry__ordering"
+        "-payment__date", "-payment__registry__ordering"
     )
     return {"methods": methods}
