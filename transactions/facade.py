@@ -84,6 +84,30 @@ def create_registries_context_period_paid_methods_unique(month_year):
         "-payment__date", "-payment__registry__ordering"
     )
     return {"methods": methods}
+def create_category_n2_context_period_payd_methods_out(month_year):
+    first_day, last_day = website_facade.start_end_dates(month_year)
+    methods = list(
+        md.Methods.objects.filter(
+            payment__date__range=[first_day, last_day],
+            payment__registry__in_out=False,
+        )
+        .annotate(category=F("payment__registry__category_n2__description"))
+        .values("category", "value")
+    )
+    list_category = []
+    for key, value in groupby(
+        sorted(methods, key=lambda cat: cat["category"]),
+        lambda cat: cat["category"],
+    ):
+        list_category.append(
+            {
+                "category": key,
+                "value": str(sum(item["value"] for item in list(value))),
+            }
+        )
+    return {"category_n2_out": list_category}
+
+
 def create_category_n3_context_period_payd_methods_out(month_year):
     first_day, last_day = website_facade.start_end_dates(month_year)
     methods = list(
