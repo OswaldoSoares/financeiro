@@ -84,6 +84,18 @@ def create_registries_context_period_paid_methods_unique(month_year):
         "-payment__date", "-payment__registry__ordering"
     )
     return {"methods": methods}
+def save_method(request):
+    record = []
+    record.append(
+        md.Methods(
+            payment_id=int(request.POST.get("payment_id")),
+            account_id=int(request.POST.get("account_id")),
+            value=float(request.POST.get("value")),
+        )
+    )
+    md.Methods.objects.bulk_create(record)
+
+
 def consult_payment(registry_id):
     payment = md.Payments.objects.filter(registry_id=registry_id)
     if payment:
