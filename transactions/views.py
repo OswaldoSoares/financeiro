@@ -29,7 +29,7 @@ def index_transactions(request):
 
 def add_registry(request):
     if request.method == "GET":
-        data = tf.form_regsitries(request)
+        data = tf.form_regitries(request)
     else:
         tf.save_registry(request)
         context = tf.create_registries_context_unpayd()
