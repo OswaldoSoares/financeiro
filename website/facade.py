@@ -17,3 +17,20 @@ def start_end_dates(month_year):
     first_day = datetime.strptime(f"1-{month}-{year}", "%d-%m-%Y")
     last_day = first_day + relativedelta(months=+1, days=-1)
     return first_day, last_day
+
+
+def detach_month_year(month_year):
+    """
+        Returns the month and year separated from a month year string.
+    Args:
+        month_year: String composed of month and year in mm/yyyy format.
+
+
+    Returns:
+        int month and int year
+
+    """
+    date = datetime.strptime(month_year, "%m/%Y")
+    month = int(datetime.strftime(date, "%m"))
+    year = int(datetime.strftime(date, "%Y"))
+    return month, year
