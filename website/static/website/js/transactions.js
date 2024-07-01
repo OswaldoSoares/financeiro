@@ -20,3 +20,10 @@ $(document).on('click', '.js-mostra-itens', function() {
         },
     });   
 });
+
+$(document).on('click', '.js-toggle-registries-period', function() {
+    $(".js-body-registries-period").slideToggle(500)
+    $(".js-footer-registries-period").slideToggle(500)
+    slide_toggle_icon($(this))
+
+});
