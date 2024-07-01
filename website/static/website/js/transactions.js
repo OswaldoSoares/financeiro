@@ -33,3 +33,8 @@ $(document).on('click', '.js-toggle-registries-unpaid', function() {
     $(".js-footer-registries-unpaid").slideToggle(500)
     slide_toggle_icon($(this))
 });
+
+var slide_toggle_icon = function(element) {
+    element.toggleClass("icofont-simple-up");
+    element.toggleClass("icofont-simple-down");
+}
