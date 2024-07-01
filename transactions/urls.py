@@ -6,3 +6,12 @@ from transactions.views import (
     add_registry_itens,
     view_registry_itens,
 )
+
+
+urlpatterns = [
+    path(
+        "",
+        index_transactions,
+        name="index_transactions",
+    ),
+]
