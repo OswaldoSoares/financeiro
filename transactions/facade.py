@@ -84,6 +84,14 @@ def create_registries_context_period_paid_methods_unique(month_year):
         "-payment__date", "-payment__registry__ordering"
     )
     return {"methods": methods}
+def create_registry_itens_context(registry_id):
+    itens = md.RegistryItens.objects.filter(registry_id=registry_id).annotate(
+        total=Sum(F("amount") * F("unitary"))
+    )
+    total = itens.aggregate(value=Sum("total"))
+    return {"itens": itens, "total": total, "registry_id": registry_id}
+
+
 def create_registries_data_unpaid(request, context):
     data = {}
     data["html_registries_unpaid"] = render_to_string(
