@@ -1,6 +1,12 @@
 import datetime
 from django import forms
 from transactions import models
+
+
+class DateInput(forms.DateInput):
+    input_type = "date"
+
+
 class PaymentForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
