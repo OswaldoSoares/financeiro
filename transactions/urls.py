@@ -29,4 +29,9 @@ urlpatterns = [
         add_registry_itens,
         name="add_registry_itens",
     ),
+    path(
+        "view_registry_itens",
+        view_registry_itens,
+        name="view_registry_itens",
+    ),
 ]
