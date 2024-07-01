@@ -1,0 +1,102 @@
+<form class="row g-3" method="POST" action="add_registry">
+	{% csrf_token %}
+	<div class="col-md-3">
+        <div class="form-group">
+            <div class="input-group-addon addon-top">
+                <label for="id_date" class="form-label">DATA</label>
+            </div>
+            <div>
+                {{ form.date }}
+                {{ form.date.errors }}
+            </div>
+        </div>
+    </div>
+	<div class="col-md-3">
+        <div class="form-group">
+            <div class="input-group-addon addon-top">
+                <label for="id_value" class="form-label">VALOR</label>
+            </div>
+            <div>
+                {{ form.value }}
+                {{ form.value.errors }}
+            </div>
+        </div>
+    </div>
+	<div class="col-md-3">
+        <div class="form-group">
+            <div class="input-group-addon addon-top">
+                <label for="id_in_out" class="form-label">TIPO</label>
+            </div>
+            <div>
+                {{ form.in_out }}
+                {{ form.in_out.errors }}
+            </div>
+        </div>
+    </div>
+	<div class="col-md-3">
+        <div class="form-group">
+            <div class="input-group-addon addon-top">
+                <label for="id_ordering" class="form-label">ORDEM</label>
+            </div>
+            <div>
+                {{ form.ordering }}
+                {{ form.ordering.errors }}
+            </div>
+        </div>
+    </div>
+	<div class="col-md-6">
+        <div class="form-group">
+            <div class="input-group-addon addon-top">
+                <label for="id_companies" class="form-label">EMPRESA</label>
+            </div>
+            <div>
+                {{ form.companies }}
+                {{ form.companies.errors }}
+            </div>
+        </div>
+    </div>
+	<div class="col-md-6">
+         <div class="form-group">
+            <div class="input-group-addon addon-top">
+                <label for="id_category_n1" class="form-label">CATEGORIA</label>
+            </div>
+            <div>
+                {{ form.category_n1 }}
+                {{ form.caterory_n1.errors }}
+            </div>
+        </div>
+    </div>
+	<div class="col-md-6">
+         <div class="form-group">
+            <div class="input-group-addon addon-top">
+                <label for="id_category_n2" class="form-label">SUB-CATEGORIA</label>
+            </div>
+            <div>
+                {{ form.category_n2 }}
+                {{ form.category_n2.errors }}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <div class="input-group-addon addon-top">
+                <label for="id_category_n3" class="form-label">SEGUIMENTO</label>
+            </div>
+            <div>
+                {{ form.category_n3 }}
+                {{ form.category_n3.errors }}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <div class="input-group-addon addon-top">
+                <label for="id_obs" class="form-label">OBSERVAÇÕES:</label>
+            </div>
+            <div>
+                {{ form.obs }}
+                {{ form.obs.errors }}
+            </div>
+        </div>
+    </div>
+</form>
