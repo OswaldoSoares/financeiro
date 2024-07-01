@@ -130,7 +130,7 @@ class RegistryItens(models.Model):
 
     def __str__(self):
         """String for representing the ModelName object"""
-        return str(f"{self.description} - {self.registries}")
+        return str(f"{self.description} - {self.registry}")
 
     def save(self, *args, **kwargs):
         self.description = self.description.upper()
