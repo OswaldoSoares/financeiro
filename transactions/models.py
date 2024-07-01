@@ -92,7 +92,7 @@ class Registries(models.Model):
         """Sorted by name field"""
 
         db_table = "transactions_registries"
-        ordering = ["date", "ordering"]
+        ordering = ["-date", "-ordering"]
 
     def __str__(self):
         """String for representing the ModelName object"""
