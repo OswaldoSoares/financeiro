@@ -1,3 +1,15 @@
+$(document).ready(function(){
+    $('#datepicker').datepicker({
+        format: "mm/yyyy",
+        startView: "months",
+        minViewMode: "months",
+        autoclose: true,
+        language: 'pt-BR',
+        inline: true
+    });
+});
+
+
 function openMyModal(event) {
     var modal = initModalDialog(event, '#MyModal');
     var url = $(event.target).data('action');
