@@ -1,0 +1,72 @@
+<!-- Header -->
+<div class="card-header">
+	<div class="div-flex">
+		<i class="icofont-plus i-button pad-left"
+			onclick="openMyModal(event); return false;"
+			data-title="ADICIONA TRANSAÇÃO"
+			data-action="add_registry"
+			data-button-save-label="SALVAR"
+			title="Adiciona Transação"></i>
+		<div class="div-form-control">
+			<span>TRANSAÇÕES A PAGAR</span>
+		</div>
+		<i class="icofont-simple-up i-button pad-right js-toggle-registries-unpaid"></i>
+	</div>
+</div>
+<!-- Body -->
+<div class="card-body body-vales-colaborador js-body-registries-unpaid">
+	{% for unpaid in unpaids %}
+	<div class="card-body-item">
+		<div class="input-group">
+			<div class="input-group-addon addon-my-color">
+				<i class="i-button-null">{{ forloop.counter|stringformat:"02d" }}</i>
+			</div>
+		<div class="div-flex div-form-control">
+			<div class="tamanho-20 text-center">
+				<span>{{ unpaid.date|date:"d/m/y" }}</span>
+			</div>
+			<div class="tamanho-60 text-left">
+				<span title="{{ unpaid.id }}">
+					{{ unpaid.companies.name }}
+				</span>
+			</div>
+			{% if unpayd.in_out %}
+			<div class="tamanho-20 text-right color-green">
+				<span>R$ {{ unpaid.value }}</span>
+			</div>
+			{% else %}
+			<div class="tamanho-20 text-right color-red">
+				<span>R$ {{ unpaid.value }}</span>
+			</div>
+			{% endif %}
+		</div>
+		<div class="input-group-addon addon-my-color addon-first">
+			<i class="icofont-money-bag i-button"
+				onclick="openMyModal(event); return false;"
+				data-title="ADICIONA PAGAMENTO"
+				data-action="add_payment"
+				data-button-save-label="SALVAR"
+				data-id-selected="{{ unpaid.id }}"
+				title="Adiciona Pagamento"></i>
+		</div>
+		<div class="input-group-addon addon-my-color">
+			<i class="icofont-eye-alt i-button js-mostra-itens" data-registry-id="{{ unpaid.id }}"
+			title="Consuta Itens"></i>
+		</div>
+	</div>
+</div>
+{% endfor %}
+</div>
+<!-- Footer -->
+<div class="card-footer js-footer-registries-unpaid">
+	<div class="div-flex">
+		<div class="div-form-control div-flex">
+			<div class="tamanho-80 text-left">
+				<span class="font-menor"></span>
+			</div>
+			<div class="tamanho-20 text-right">
+				<span class="font-menor"></span>
+			</div>
+		</div>
+	</div>
+</div>
