@@ -11,6 +11,31 @@
         </div>
     </section>
     <section class="grid-column">
+        <div class="card card-category-n1">
+            {% comment %} {% include "transactions/card_category_n1.html" %} {% endcomment %}
+        </div>
+        <div class="card card-category-n2-in">
+            {% comment %} {% include "transactions/card_category_n2_in.html" %} {% endcomment %}
+        </div>
+        <div class="card card-category-n2-out">
+            {% comment %} {% include "transactions/card_category_n3_in.html" %} {% endcomment %}
+        </div>
+        <div class="card card-category-n3-in">
+            {% comment %} {% include "transactions/card_category_n2_out.html" %} {% endcomment %}
+        </div>
+        <div class="card card-category-n3-out">
+            {% comment %} {% include "transactions/card_category_n3_out.html" %} {% endcomment %}
+        </div>
+        <div class="card card-registry-itens">
+        </div>
+    </section>
+    <section class="grid-column">
+        <div class="card card-registries">
+            {% include "transactions/card_registries_period.html" %}
+        </div>
+        <div class="card card-registries-unpaid">
+            {% include "transactions/card_registries_unpaid.html" %}
+        </div>
     </section>
 </main>
 {% endblock container %}
