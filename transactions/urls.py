@@ -24,4 +24,9 @@ urlpatterns = [
         add_registry,
         name="add_registry",
     ),
+    path(
+        "add_registry_itens",
+        add_registry_itens,
+        name="add_registry_itens",
+    ),
 ]
