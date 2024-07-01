@@ -84,6 +84,18 @@ def create_registries_context_period_paid_methods_unique(month_year):
         "-payment__date", "-payment__registry__ordering"
     )
     return {"methods": methods}
+def create_payment_context_unmethod(month_year):
+    first_day, last_day = website_facade.start_end_dates(month_year)
+    methods = md.Methods.objects.filter(
+        payment__date__range=[first_day, last_day]
+    )
+    list_id = []
+    for method in methods:
+        list_id.append(method.payment_id)
+    unmethods = md.Payments.objects.all().exclude(id__in=list_id)
+    return {"unmethods": unmethods}
+
+
 def create_registries_context_unpayd():
     payds = md.Payments.objects.all()
     list_id = []
