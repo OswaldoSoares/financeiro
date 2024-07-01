@@ -14,4 +14,9 @@ urlpatterns = [
         index_transactions,
         name="index_transactions",
     ),
+    path(
+        "add_payment",
+        add_payment,
+        name="add_payment",
+    ),
 ]
