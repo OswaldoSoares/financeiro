@@ -6,9 +6,11 @@ $(document).ready(function(){
         autoclose: true,
         language: 'pt-BR',
         inline: true
-    });
-});
-
+    }).on('changeDate', function(e) {
+        var selectedDate = e.format('mm/yyyy');
+        document.getElementById("menu-transactions").href = '/transactions/?date=' + selectedDate
+    })
+})
 
 function openMyModal(event) {
     var modal = initModalDialog(event, '#MyModal');
