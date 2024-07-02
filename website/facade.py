@@ -34,3 +34,10 @@ def detach_month_year(month_year):
     month = int(datetime.strftime(date, "%m"))
     year = int(datetime.strftime(date, "%Y"))
     return month, year
+
+
+def today_month_year():
+    today = datetime.today()
+    month = today.month
+    year = today.year
+    return month, year
