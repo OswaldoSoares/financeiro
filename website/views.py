@@ -1,4 +1,5 @@
 """ Encapsulate the logic responsible for processing a request """
+
 from django.shortcuts import render
 from monetary.models import Accounts
 
