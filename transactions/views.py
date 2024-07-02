@@ -1,9 +1,13 @@
 from django.shortcuts import render
 from transactions import facade as tf
+from website import facade as wf
 
 
 def index_transactions(request):
-    month_year = "04/2024"
+    month_year = request.GET.get("date")
+    if month_year is None:
+        month, year = wf.today_month_year()
+        month_year = f"{month}/{year}"
     context = {}
     context.update(
         tf.create_registries_context_period_paid_methods_unique(month_year)
