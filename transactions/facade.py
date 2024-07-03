@@ -256,6 +256,12 @@ def create_company_data_message(request):
     return JsonResponse(data)
 
 
+def create_category_data_message(reqauest):
+    data = {}
+    data["html_message"] = "SALVO COM SUCESSO"
+    return JsonResponse(data)
+
+
 def form_payment(request):
     registry = md.Registries.objects.get(id=request.GET.get("id_selected"))
     print(registry)
