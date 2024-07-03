@@ -250,6 +250,12 @@ def create_registry_itens_data(request, context):
     return JsonResponse(data)
 
 
+def create_company_data_message(request):
+    data = {}
+    data["html_message"] = "SALVO COM SUCESSO"
+    return JsonResponse(data)
+
+
 def form_payment(request):
     registry = md.Registries.objects.get(id=request.GET.get("id_selected"))
     print(registry)
