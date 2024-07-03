@@ -19,6 +19,7 @@ from django.contrib import admin
 from django.urls import path, include
 from website import urls as website_urls
 from transactions import urls as transactions_urls
+from monetary import urls as monetary_urls
 
 
 urlpatterns = [
