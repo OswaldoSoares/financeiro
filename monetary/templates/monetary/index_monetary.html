@@ -1,0 +1,29 @@
+{% extends "website/base.html" %}
+{% load static %}
+{% block container %}
+<main class="section-grid">
+    <section class="grid-column">
+        <div class="left-menu">
+            <i class="icofont-exchange left-menu-item"
+               onclick="openMyModal(event); return false;"
+               data-title="TRANSFERÊNCIA ENTRE CONTAS"
+               data-action="add_transfer"
+               data-button-save-label="SALVAR"
+               title="Adiciona Transferência"></i>
+        </div>
+    </section>
+    <section class="grid-column">
+        <div class="card card...">
+        </div>
+    </section>
+    <section class="grid-column">
+        <div class="card card...">
+        </div>
+    </section>
+    <section class="grid-column">
+        <div class="card card-registries">
+            {% include "transactions/card_registries_period.html" %}
+        </div>
+    </section>
+</main>
+{% endblock container %}
