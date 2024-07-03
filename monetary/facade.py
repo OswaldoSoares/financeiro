@@ -30,3 +30,19 @@ def save_transfer(request):
     md.Transfers.objects.bulk_create(record)
     save_new_balance(out_account, input_value, "minus")
     save_new_balance(in_account, input_value, "plus")
+
+
+def save_new_balance(account, input_value, operator):
+    account = md.Accounts.objects.filter(id=account)
+    record = []
+    record.append(
+        md.Accounts(
+            value=(
+                account.value + input_value
+                if operator == "plus"
+                else account.value - input_value
+            ),
+            id=account.id,
+        )
+    )
+    md.Accounts.objects.bulk_update(record, "value")
