@@ -1,0 +1,49 @@
+<form class="row g-3" method="post" action="{% url 'add_transfer' %}">
+	{% csrf_token %}
+	<div class="col-md-3">
+		<div class="form-group">
+			<div class="input-group-addon addon-top">
+				<label for="id_date" class="form-label">DATA</label>
+			</div>
+			<div>
+				{{ form.date }}
+				{{ form.date.errors }}
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-3">
+		<div class="form-group">
+			<div class="input-group-addon addon-top">
+				<label for="id_out_account" class="form-label">CONTA SAÍDA</label>
+			</div>
+			<div>
+				{{ form.out_account }}
+				{{ form.out_account.errors }}
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="form-group">
+			<div class="input-group-addon addon-top">
+				<label for="id_in_account" class="form-label">CONTA ENTRADA</label>
+			</div>
+			<div>
+				{{ form.in_account }}
+				{{ form.in_account.errors }}
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="form-group">
+			<div class="input-group-addon addon-top">
+				<label for="id_value" class="form-label">VALOR</label>
+			</div>
+			<div>
+				{{ form.value }}
+				{{ form.value.errors }}
+			</div>
+		</div>
+	</div>
+
+</form>
