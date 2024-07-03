@@ -83,3 +83,13 @@ class RegistryItensForm(forms.ModelForm):
             "unitary": forms.NumberInput(attrs={"class": "form-control"}),
             "favored": forms.TextInput(attrs={"class": "form-control"}),
         }
+
+
+class CompanyForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+    class Meta:
+        model = models.Companies
+        fields = "__all__"
+        widgets = {"name": forms.TextInput(attrs={"class": "form-control"})}
