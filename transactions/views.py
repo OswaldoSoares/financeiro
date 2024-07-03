@@ -72,3 +72,12 @@ def view_registry_itens(request):
     context = tf.create_registry_itens_context(request.GET.get("registry_id"))
     data = tf.create_registry_itens_data(request, context)
     return data
+
+
+def add_company(request):
+    if request.method == "GET":
+        data = tf.form_companies(request)
+    else:
+        tf.save_company(request)
+        data = tf.create_company_data_message(request)
+    return data
