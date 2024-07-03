@@ -1,0 +1,14 @@
+<form class="row g-3" method="post" action="{% url 'add_company' %}">
+	{% csrf_token %}
+	<div class="col-md-12">
+		<div class="form-group">
+			<div class="input-group-addon addon-top">
+				<label for="id_name" class="form-label">FAVORECIDO</label>
+			</div>
+			<div>
+				{{ form.name }}
+				{{ form.name.errors }}
+			</div>
+		</div>
+	</div>
+</form>
