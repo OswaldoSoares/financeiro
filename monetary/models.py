@@ -46,10 +46,11 @@ class Transfers(models.Model):
         Accounts, on_delete=models.CASCADE, related_name="incoming_transfers"
     )
     value = models.DecimalField(max_digits=10, decimal_places=2)
+    date = models.DateField()
 
     class Meta:
         db_table = "monetary_transfers"
-        ordering = ("out_account", "in_account")
+        ordering = ("date", "out_account", "in_account")
 
     def save(self, *args, **kwargs):
         super().save(self, *args, **kwargs)
