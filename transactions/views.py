@@ -81,3 +81,12 @@ def add_company(request):
         tf.save_company(request)
         data = tf.create_company_data_message(request)
     return data
+
+
+def add_category(request):
+    if request.method == "GET":
+        data = tf.form_categories(request)
+    else:
+        tf.save_category(request)
+        data = tf.create_category_data_message(request)
+    return data
