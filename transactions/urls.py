@@ -17,6 +17,11 @@ urlpatterns = [
         name="index_transactions",
     ),
     path(
+        "add_company",
+        add_company,
+        name="add_company",
+    ),
+    path(
         "add_payment",
         add_payment,
         name="add_payment",
