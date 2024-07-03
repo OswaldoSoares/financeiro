@@ -305,6 +305,16 @@ def form_companies(request):
     return JsonResponse(data)
 
 
+def form_categories(request):
+    form = fr.CategoryForm()
+    context = {"form": form}
+    data = {}
+    data["html_modal"] = render_to_string(
+        "transactions/modal_form_category.html", context, request=request
+    )
+    return JsonResponse(data)
+
+
 def save_registry(request):
     record = []
     record.append(
