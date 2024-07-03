@@ -42,7 +42,7 @@ body {
 
 .section-grid {
   width: 100%;
-  padding: 5px;
+  /* padding: 5px; */
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 5px;
@@ -252,7 +252,35 @@ body {
   transform: translate3d(7em,1em,0);
 }
 
-/* Menu Circular - End */
+/* Menu Left */
+.left-menu {
+  background-color: hsl(4, 98%, 60%);
+  width: 3.9em;
+  height: 100vh;
+  margin-left: 0.8em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.left-menu .left-menu-item {
+  margin-top: 0.5em;
+  text-decoration: none;
+  color: hsl(0, 0%, 100%);
+  font-size: 1em;
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 3;
+  background-color: hsla(0,0%,0%,.1);
+}
+
+.left-menu .left-menu-item:hover {
+  background-color: hsla(0,0%,0%,.3);
+}
+
 
 /* Card - Begin */
 
