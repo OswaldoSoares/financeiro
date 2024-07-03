@@ -7,6 +7,11 @@ from monetary.views import (
 
 urlpatterns = [
     path(
+        "add_transfer",
+        add_transfer,
+        name="add_transfer",
+    ),
+    path(
         "index_monetary",
         index_monetary,
         name="index_monetary",
