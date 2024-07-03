@@ -1,6 +1,7 @@
 from django.urls import path
 from transactions.views import (
     index_transactions,
+    add_category,
     add_company,
     add_payment,
     add_registry,
