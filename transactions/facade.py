@@ -295,6 +295,16 @@ def form_registry_itens(request):
     return JsonResponse(data)
 
 
+def form_companies(request):
+    form = fr.CompanyForm()
+    context = {"form": form}
+    data = {}
+    data["html_modal"] = render_to_string(
+        "transactions/modal_form_company.html", context, request=request
+    )
+    return JsonResponse(data)
+
+
 def save_registry(request):
     record = []
     record.append(
