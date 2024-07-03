@@ -371,6 +371,16 @@ def save_method(request):
     md.Methods.objects.bulk_create(record)
 
 
+def save_company(request):
+    record = []
+    record.append(
+        md.Companies(
+            name=request.POST.get("name"),
+        )
+    )
+    md.Companies.objects.bulk_create(record)
+
+
 def consult_payment(registry_id):
     payment = md.Payments.objects.filter(registry_id=registry_id)
     if payment:
