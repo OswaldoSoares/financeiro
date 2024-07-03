@@ -93,3 +93,15 @@ class CompanyForm(forms.ModelForm):
         model = models.Companies
         fields = "__all__"
         widgets = {"name": forms.TextInput(attrs={"class": "form-control"})}
+
+
+class CategoryForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+    class Meta:
+        model = models.Categories
+        fields = "__all__"
+        widgets = {
+            "description": forms.TextInput(attrs={"class": "form-control"})
+        }
