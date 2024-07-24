@@ -5,7 +5,8 @@ from monetary import facade as mf
 
 
 def index_monetary(request):
-    context = {"nada": "nada"}
+    accounts = mf.create_context_accounts(request)
+    context = {"accounts": accounts}
     return render(request, "monetary/index_monetary.html", context)
 
 
