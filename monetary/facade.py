@@ -42,6 +42,19 @@ def form_accounts(request):
     return JsonResponse(data)
 
 
+def save_account(request):
+    record = []
+    opening_balance = float(request.POST.get("balance"))
+    record.append(
+        md.Accounts(
+            name=request.POST.get("name"),
+            description=request.POST.get("description"),
+            balance=opening_balance,
+        )
+    )
+    md.Accounts.objects.bulk_create(record)
+
+
 def save_new_balance(account, value, operator):
     account = md.Accounts.objects.get(id=account)
     record = []
