@@ -8,6 +8,11 @@ from monetary.views import (
 
 urlpatterns = [
     path(
+        "add_account",
+        add_account,
+        name="add_account",
+    ),
+    path(
         "add_transfer",
         add_transfer,
         name="add_transfer",
