@@ -46,3 +46,6 @@ def save_new_balance(account, input_value, operator):
         )
     )
     md.Accounts.objects.bulk_update(record, "value")
+def create_context_accounts(request):
+    accounts = md.Accounts.objects.all()
+    return accounts
