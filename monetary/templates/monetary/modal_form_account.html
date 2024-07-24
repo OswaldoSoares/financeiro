@@ -1,1 +1,36 @@
-
+<form class="row g-3" method="post" action="{% url 'add_account' %}">
+	{% csrf_token %}
+	<div class="col-md-9">
+		<div class="form-group">
+			<div class="input-group-addon addon-top">
+				<label for="id_name" class="form-label">CONTA</label>
+			</div>
+			<div>
+				{{ form.name }}
+				{{ form.name.errors }}
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="form-group">
+			<div class="input-group-addon addon-top">
+				<label for="id_balance" class="form-label">SALDO INICIAL</label>
+			</div>
+			<div>
+				{{ form.balance }}
+				{{ form.balance.errors }}
+			</div>
+		</div>
+	</div>
+	<div class="col-md-12">
+		<div class="form-group">
+			<div class="input-group-addon addon-top">
+				<label for="id_description" class="form-label">DESCRIÇÃO</label>
+			</div>
+			<div>
+				{{ form.description }}
+				{{ form.description.errors }}
+			</div>
+		</div>
+	</div>
+</form>
