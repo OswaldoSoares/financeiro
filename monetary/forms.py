@@ -7,6 +7,22 @@ class DateInput(forms.DateInput):
     input_type = "date"
 
 
+class AccountForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+    class Meta:
+        model = models.Accounts
+        fields = "__all__"
+        widgets = {
+            "name": forms.TextInput(attrs={"class": "form-control"}),
+            "description": forms.Textarea(
+                attrs={"class": "form-control textarea", "rows": "3"}
+            ),
+            "balance": forms.NumberInput(attrs={"class": "form-control"}),
+        }
+
+
 class TransferForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
