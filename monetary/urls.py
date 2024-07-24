@@ -1,5 +1,6 @@
 from django.urls import path
 from monetary.views import (
+    add_account,
     add_transfer,
     index_monetary,
 )

@@ -10,6 +10,15 @@ def index_monetary(request):
     return render(request, "monetary/index_monetary.html", context)
 
 
+def add_account(request):
+    if request.method == "GET":
+        data = mf.form_accounts(request)
+    else:
+        mf.save_account(request)
+        data = mf.create_account_data_message(request)
+    return data
+
+
 def add_transfer(request):
     if request.method == "GET":
         data = mf.form_transfers(request)
