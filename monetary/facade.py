@@ -32,6 +32,16 @@ def save_transfer(request):
     save_new_balance(in_account, input_value, "plus")
 
 
+def form_accounts(request):
+    form = fr.AccountForm()
+    context = {"form": form}
+    data = {}
+    data["html_modal"] = render_to_string(
+        "monetary/modal_form_account.html", context, request=request
+    )
+    return JsonResponse(data)
+
+
 def save_new_balance(account, value, operator):
     account = md.Accounts.objects.get(id=account)
     record = []
